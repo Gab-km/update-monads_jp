@@ -92,23 +92,48 @@ Readerモナド プリミティブ
 
 式の方を確認すると（マウスを ``read`` の上にホバーさせてみてください）、パラメータ化されたUpdateモナド型になっているのがわかります。 ``read`` プリミティブは ``UpdateMonad<ReaderState, ReaderUpdate, ReaderState>`` 型です。これは ``ReaderState`` と ``ReaderUpdate`` を （計算の詳細を指定する） *act* として用い、実行時には ``ReaderState`` を生成するようなupdateモナドを定義したことを意味します。
 
-Sample reader computations
---------------------------
+..
+   Sample reader computations
+   --------------------------
 
-Now we can use the ``update { .. }`` block together with the ``read`` primitive to write computations that can read an immutable state. The following basic example reads the state and adds one (in ``demo1``), and then adds 1 again in ``demo2``:
+Reader コンピュテーション式のサンプル
+=====================================
+
+.. Now we can use the ``update { .. }`` block together with the ``read`` primitive to write computations that can read an immutable state. The following basic example reads the state and adds one (in ``demo1``), and then adds 1 again in ``demo2``:
+
+これで ``update{ .. }`` ブロックを、 ``read`` プリミティブとともに使い、不変状態を読み取ることができる式を記述することができます。以下に示す基本的な例では、状態を読み取り、1を加算し（ ``demo1`` ）、さらにもう一度1を加算しています（ ``demo2`` ）。
+
+
+..
+   .. code-block:: fsharp
+
+     /// Returns state + 1
+     let demo1 = update {
+       let! v = read
+       return v + 1 }
+     /// Returns the result of demo1 + 1
+     let demo2 = update {
+       let! v = demo1
+       return v + 1 }
+
+     // Run it with state 40
+     demo2 |> readRun 40
 
 .. code-block:: fsharp
 
-  /// Returns state + 1
+  /// stateに1加算したものを返す
   let demo1 = update {
     let! v = read
     return v + 1 }
-  /// Returns the result of demo1 + 1
+  /// demo1に1加算したものを返す
   let demo2 = update {
     let! v = demo1
     return v + 1 }
 
-  // Run it with state 40
+  // demo2を40で行う
   demo2 |> readRun 40
 
-If you run the code, you'll see that the result is 42. The interesting thing about this approach is that we only had to define two types. The ``update { .. }`` computation works for all update monads and so we get the computation builder "for free". However, thanks to the parameterization, the computation really represents an immutable state - there is no way to mutate it.
+
+.. If you run the code, you'll see that the result is 42. The interesting thing about this approach is that we only had to define two types. The ``update { .. }`` computation works for all update monads and so we get the computation builder "for free". However, thanks to the parameterization, the computation really represents an immutable state - there is no way to mutate it.
+
+コードを実行すると、結果は42となるでしょう。このアプローチの興味深い点は、2つの型しか定義する必要がなかった、ということです。 ``update { .. }`` コンピュテーション式は、全てのUpdateモナドに対してちゃんと動作しますので、コンピュテーション式ビルダを"タダで"使うことができてしまいます。それでいながらも、パラメタ化の恩恵により、この計算は 不変の状態 -変更する手段が全くない- を、まさに表現しているのです。
