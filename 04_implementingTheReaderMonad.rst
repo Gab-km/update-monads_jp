@@ -1,6 +1,11 @@
------------------------------
-Implementing the reader monad
------------------------------
+..
+   -----------------------------
+   Implementing the reader monad
+   -----------------------------
+
+====================
+ Readerモナドの実装
+====================
 
 The reader monad keeps some state, but it does not give us any way of modifying it. In terms of update monads, this means that there is some state, but the monoid of updates is trivial - in principle, we can just use ``unit`` as the type of updates. You can see that when looking at the type too - the type of reader monad is ``'TState -> 'T``. To get a type with a structure matching to update monads, we can use an equivalent type ``'TState -> unit * 'T``.
 
