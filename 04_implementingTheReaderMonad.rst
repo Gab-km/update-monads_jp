@@ -50,7 +50,7 @@ Readerの状態と更新
 
 .. None of the operations on the ``ReaderUpdate`` type does anything interesting. Both unit and combine simply returns the only possible value and the apply operation returns the state without a change.
 
-``ReaderUpdate`` xに関わる操作で興味深いものはありません。 ``unit`` も ``combine`` も単純に取りうるただひとつの値を返すだけですし、 ``apply`` 操作は状態を変更なく返すだけです。
+``ReaderUpdate`` に関わる操作で興味深いものはありません。 ``unit`` も ``combine`` も単純に取りうるただひとつの値を返すだけですし、 ``apply`` 操作は状態を変更なく返すだけです。
 
 ..
    Reader monad primitives
