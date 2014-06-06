@@ -9,7 +9,7 @@
 
 .. The reader monad keeps some state, but it does not give us any way of modifying it. In terms of update monads, this means that there is some state, but the monoid of updates is trivial - in principle, we can just use ``unit`` as the type of updates. You can see that when looking at the type too - the type of reader monad is ``'TState -> 'T``. To get a type with a structure matching to update monads, we can use an equivalent type ``'TState -> unit * 'T``.
 
-リーダーもなどはいくつかの状態を保持しますが、それらを更新する術をもちません。Updateモナドの文脈で言うならば、いくつか状態は存在するものの、更新を行うモノイドは原則的には取るに足らないもので、単に ``Unit`` を更新の型として用いればいいということになります。このことは、型を見ればわかります -Readerモナドの方は ``'TState -> T`` となっています-。Updateモナドに対応する構造にするため、同様の意味を持つ型として ``'TState -> unit * 'T`` を用いることができます。
+リーダーモナドはいくつかの状態を保持しますが、それらを更新する術をもちません。Updateモナドの文脈で言うならば、いくつか状態は存在するものの、更新を行うモノイドは原則的には取るに足らないもので、単に ``Unit`` を更新の型として用いればいいということになります。このことは、型を見ればわかります -Readerモナドの方は ``'TState -> T`` となっています-。Updateモナドに対応する構造にするため、同様の意味を持つ型として ``'TState -> unit * 'T`` を用いることができます。
 
 
 ..
