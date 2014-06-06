@@ -95,7 +95,7 @@ Reader コンピュテーション式のサンプル
 
 .. Now we can use the ``update { .. }`` block together with the ``read`` primitive to write computations that can read an immutable state. The following basic example reads the state and adds one (in ``demo1``), and then adds 1 again in ``demo2``:
 
-これで ``update{ .. }`` ブロックを、 ``read`` プリミティブとともに使い、不変状態を読み取ることができる式を記述することができます。以下に示す基本的な例では、状態を読み取り、1を加算し（ ``demo1`` ）、さらにもう一度1を加算しています（ ``demo2`` ）。
+これで ``update{ .. }`` ブロックを、 ``read`` プリミティブとともに使い、不変状態を読み取ることができるコンピュテーション式を記述することができます。以下に示す基本的な例では、状態を読み取り、1を加算し（ ``demo1`` ）、さらにもう一度1を加算しています（ ``demo2`` ）。
 
 
 ..
