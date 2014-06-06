@@ -62,7 +62,7 @@ Readerモナド プリミティブ
 .. Next, we need a primitive that allows us to read the state and a run operation that executes a computation implemented using the reader monad (given the value of the read-only state). The operations look as follows:
 
 
-次に、（読み取り専用な値を受け取る）Readerモナドを用いて実装された式を実行するための、プリミティブな操作が必要となります。それは以下のようになります。
+次に、プリミティブな操作として、状態を読み取り、（読み取り専用な値を受け取る）Readerモナドを用いて実装された計算を実行するという操作を行うものを定義します。以下のようになります。
 
 ..
    .. code-block:: fsharp
@@ -84,7 +84,7 @@ Readerモナド プリミティブ
 
 .. When you look at the type of computations (hover the mouse pointer over the ``read`` identifier), you can see a parameterized update monad type. The ``read`` primitive has a type ``UpdateMonad<ReaderState, ReaderUpdate, ReaderState>``. This means that we have an update monad that uses ``ReaderState`` and ``ReaderUpdate`` as the *act* (specifying the computation details) and, when executed, produces a value of ``ReaderState``.
 
-式の方を確認すると（マウスを ``read`` の上にホバーさせてみてください）、パラメータ化されたUpdateモナド型になっているのがわかります。 ``read`` プリミティブは ``UpdateMonad<ReaderState, ReaderUpdate, ReaderState>`` 型です。これは ``ReaderState`` と ``ReaderUpdate`` を （計算の詳細を指定する） *act* として用い、実行時には ``ReaderState`` を生成するようなupdateモナドを定義したことを意味します。
+計算の型を確認すると（マウスを ``read`` の上にホバーさせてみてください）、パラメータ化されたUpdateモナド型になっているのがわかります。 ``read`` プリミティブは ``UpdateMonad<ReaderState, ReaderUpdate, ReaderState>`` 型です。これは ``ReaderState`` と ``ReaderUpdate`` を （計算の詳細を指定する） *act* として用い、実行時には ``ReaderState`` を生成するようなupdateモナドを定義したことを意味します。
 
 ..
    Sample reader computations
