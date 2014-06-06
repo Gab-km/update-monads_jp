@@ -18,15 +18,12 @@
 
 
 
-読み取り状態と更新
+Readerの状態と更新
 ==================
-
-.. note::
-   ここどう訳するべき？？Reader状態とUpdate、とかおかしいけど日本語だけってのもわけわからん。
 
 .. In practice, we still need to define a type for updates, so that we can provide the required static members. We use a single-case discriminated union with just one value ``NoUpdate``:
 
-実際の所、必要な静的メンバを提供できるように、まだ更新のための型を定義する必要があります。
+実際の所、必要な静的メンバを提供できるように、さらに更新のための型を定義する必要があります。 ``NoUpdate`` 1ケースのみを持つ判別共用体を使いましょう。
 
 ..
    .. code-block:: fsharp
@@ -44,7 +41,7 @@
 
   /// Readerの状態は 'int'
   type ReaderState = int
-  /// 更新用の単純なMonoid
+  /// 更新用の自明なMonoid
   type ReaderUpdate =
     | NoUpdate
     static member Unit = NoUpdate
@@ -53,7 +50,7 @@
 
 .. None of the operations on the ``ReaderUpdate`` type does anything interesting. Both unit and combine simply returns the only possible value and the apply operation returns the state without a change.
 
-``ReaderUpdate``に関わる操作で興味深いものはありません。 ``unit`` も ``combine`` も単純に取りうるただひとつの値を返すだけですし、 ``apply`` 操作は状態を変更なく返すだけです。
+``ReaderUpdate`` xに関わる操作で興味深いものはありません。 ``unit`` も ``combine`` も単純に取りうるただひとつの値を返すだけですし、 ``apply`` 操作は状態を変更なく返すだけです。
 
 ..
    Reader monad primitives
@@ -64,9 +61,6 @@ Readerモナド プリミティブ
 
 .. Next, we need a primitive that allows us to read the state and a run operation that executes a computation implemented using the reader monad (given the value of the read-only state). The operations look as follows:
 
-.. note::
-   * Computation = 式 でOK？？
-   * primitive = 訳せない・・・。とりあえずPrimitiveで。
 
 次に、（読み取り専用な値を受け取る）Readerモナドを用いて実装された式を実行するための、プリミティブな操作が必要となります。それは以下のようになります。
 
