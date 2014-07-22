@@ -52,7 +52,7 @@ Writer の状態と更新
 
 .. The writer monad appears (in some informal sense) dual to the earlier reader monad. The state (that can be read) is always empty and is represented by the ``NoState`` value, while all the interesting aspects are captured by the ``WriterUpdate`` type - which is a list of values produced by the computation. The updates of a writer monad have to form a monoid - here, we use a list that concatenates all logged values. You could easily change the definition to implement other monoids (e.g. to keep the last produced value).
 
-Writer モナドは先の Reader モナドに対して(いくぶん形式的でない点で)2つの面を見せます。(読み取り可能な)状態は常に空で ``NoState`` という値で表現され、全ての興味深い側面が ``WriterUpdate`` 型ーこの型は計算によって生成された値のリストです。Writer モナドの更新はモノイドを成す必要がありますーに捉えられますが、私たちはすべてのログの値を連結したリストを使います。他のモノイド(例えば、最後に生成した値を保持する)を実装する定義に簡単に変更できます。
+Writer モナドは先の Reader モナドに対して(いくぶん形式的でない点で)2つの面を見せます。(読み取り可能な)状態は常に空で ``NoState`` という値で表現されていますが、ここでは全ての興味深い側面は ``WriterUpdate`` 型―この型は計算によって生成された値のリストです。Writer モナドの更新はモノイドを成す必要があります―に捉えられており、私たちはすべてのログの値を連結したリストを使います。他のモノイド(例えば、最後に生成した値を保持する)を実装する定義に簡単に変更できます。
 
 ..
    Writer monad primitives
