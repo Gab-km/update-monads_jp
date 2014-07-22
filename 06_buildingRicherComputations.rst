@@ -7,7 +7,7 @@
 
 .. One of the key things about F# computation expressions that I emphasized in `my previous blog post <http://tomasp.net/blog/2013/computation-zoo-padl>`_ and in the `PADL 2014 paper <http://tomasp.net/academic/papers/computation-zoo/>`_ is that computation expressions provide rich syntax that includes resource management (the ``use`` keyword), exception handling or loops (``for`` and ``while``) - in simple words, it mirrors the normal syntax of F#.
 
-私が `以前のブログ投稿 <http://tomasp.net/blog/2013/computation-zoo-padl>`_ と `PADL 2014 の論文 <http://tomasp.net/academic/papers/computation-zoo/>`_ で強調していた F# のコンピュテーション式についてキーとなるものの1つは、コンピュテーション式がリソース管理(``use`` キーワード)や、例外処理、ループ(``for`` と ``while``)を含めた豊かな構文をもたらすということです－シンプルな言葉で言うと、これは F# の普通の構文を反映しています。
+私が `以前のブログ投稿 <http://tomasp.net/blog/2013/computation-zoo-padl>`_ と `PADL 2014 の論文 <http://tomasp.net/academic/papers/computation-zoo/>`_ で強調していた F# のコンピュテーション式についてキーとなるものの1つは、コンピュテーション式がリソース管理(``use`` キーワード)や、例外処理、ループ(``for`` と ``while``)を含めた豊かな構文をもたらすということです－シンプルな言葉で言うと、これは普通の F# の構文そのままです。
 
 .. So far, we have not used any of these for update monads. All these additional constructs have to be provided in the computation builder (so that the author can define them in the most suitable way). The great thing about update monads (for F#) is that we have just a single computation builder and so we can define a number of additional operations to enable richer syntax.
 
