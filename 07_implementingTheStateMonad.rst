@@ -53,7 +53,7 @@ Stateモナドの実装
     | Set of 'T | SetNop
     /// 空の更新 - 何も状態を変更しません
     static member Unit = SetNop
-    /// 更新の結合 - 最も最近の（右にある） 'Set'更新を返します
+    /// 更新の結合 - 最新の（最も右にある） 'Set'更新を返します
     static member Combine(a, b) =
       match a, b with
       | SetNop, v | v, SetNop -> v
@@ -71,13 +71,13 @@ Stateモナドの実装
 ..
    Another notable thing is the ``Combine`` operation - it takes two updates (which may be either empty updates or set updates) and produces a single one. If you read a composition ``a1 ++ a2 ++ .. ++ an`` as a sequence of state updates (either ``Set`` or ``SetNop``), then the ``Combine`` operation returns the last ``Set`` update in the sequence (or ``SetNop`` if ther are no ``Set`` updates). In other words, it builds an update that sets the last state that was set during the whole sequence.
 
-もう一つの特筆すべき点は、 ``Combine`` 操作 - 2つの更新（両方ともからの更新かも知れませんし通常の更新かもしれません）を受け取り一つの更新を返します - です。コンポジション ``a1 ++ a2 ++ .. ++ an`` を状態更新のシーケンス（ ``Set`` でも ``SetNope`` でも構いません ）として読み取った場合、 ``Combine`` 操作はシーケンス中の最後の ``Set`` 更新（一つも ``Set`` 更新がない場合は ``SetNop`` ）を返します。言い換えると、シーケンス全体の中での最後の状態を設定するような更新を構築するのです。
+もう一つの特筆すべき点は、 ``Combine`` 操作 - 2つの更新（両方とも空の更新かも知れませんし通常の更新かもしれません）を受け取り一つの更新を返します - です。合成 ``a1 ++ a2 ++ .. ++ an`` を状態更新のシーケンス（ ``Set`` でも ``SetNope`` でも構いません ）として読み取った場合、 ``Combine`` 操作はシーケンス中の最後の ``Set`` 更新（一つも ``Set`` 更新がない場合は ``SetNop`` ）を返します。言い換えると、シーケンス全体の中での最後の状態を設定するような更新を構築するのです。
 
 ..
    State monad primitives
    ----------------------
 
-``State`` モナドプリミティブ
+State モナドプリミティブ
 ----------------------------
 
 ..
@@ -120,7 +120,7 @@ Stateモナドの実装
 ..
    If you made it this far in the article, you can already expect how the example will look! We'll again use the ``update { .. }`` computation. This time, we define a computation ``demo5`` that increments the state and call it from a loop in ``demo6``:
 
-ここまで呼んできた方なら、次の例がどんな風になるのか予想できるでしょう！もう一度 ``update { .. }`` コンピュテーション式を使います。今回は、 ``demo5`` という、状態をインクリメントし ``demo6`` のループの中から呼ぶコンピュテーション式を定義します。
+ここまで読んできた方なら、次の例がどんな風になるのか予想できるでしょう！もう一度 ``update { .. }`` コンピュテーション式を使います。今回は、 ``demo5`` という、状態をインクリメントし ``demo6`` のループの中から呼ぶコンピュテーション式を定義します。
 
 ..
    .. code-block:: fsharp
