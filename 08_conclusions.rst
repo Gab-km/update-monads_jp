@@ -18,4 +18,4 @@ Haskellのバックグラウンドを持つ人々がF#をみるとき、F#がモ
 ..
    I guess that making update monads part of standard library and standard programming style in Haskell will be tricky because of historical reasons. However, for F# libraries that try to make purely functional programming easier, I think that update monads are the way to go.
 
-私の考えでは、UpdateモナドをHaskellの標準的なライブラリやプログラミングスタイルに取り込むのは、歴史的な理由によりトリッキーになるでしょう。しかしながら、純粋関数型プログラミングをより簡単にしようとしているF#のライブラリにとっては、Updateモナドは取りうる未知の一つではないかと思っています。
+私の考えでは、UpdateモナドをHaskellの標準的なライブラリやプログラミングスタイルに取り込むのは、歴史的な理由によりトリッキーになるでしょう。しかしながら、純粋関数型プログラミングをより簡単にしようとしているF#のライブラリにとっては、Updateモナドは取りうる道の一つではないかと思っています。
