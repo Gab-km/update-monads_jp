@@ -3,7 +3,7 @@ Update モナドを使った F# における状態を持った計算
 =================================================
 
 :原文: `Stateful computations in F# with update monads - Tomas Petricek's blog <http://tomasp.net/blog/2014/update-monads/index.html>`_
-:原著者: `Tomas Petricek <twitter.com/tomaspetricek>`_
+:原著者: `Tomas Petricek <https://twitter.com/tomaspetricek>`_
 
 F# においても、モナドについてのほとんどの議論は、Haskell で状態を扱うためのよく知られた標準的なモナドを見てみることから始まります。 *Reader* モナドはいくつかの読み取り専用な状態を伝播する方法を提供し、 *Writer* モナドは(手続き的に)ログのような値を生成できるようにし、 *State* モナドは読み取ったり変更したりすることができる状態を隠蔽します。
 
